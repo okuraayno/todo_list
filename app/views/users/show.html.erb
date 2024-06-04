@@ -1,2 +1,15 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 justify-content-center my-5">
+      <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle d-block mx-auto", size: "150x150" %>
+      <p class="text-center mt-3"><%= @user.name %>'s task</p>
+      <p class="text-center"><%= @user.introduction %></p>
+      <p class="text-center">
+        <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-sm px-5 edit_user_#{@user.id}" do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
+      </p>
+    </div>
+    
+  </div>
+</div>
