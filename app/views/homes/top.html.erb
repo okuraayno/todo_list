@@ -1,2 +1,14 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center my-5">
+    <div class="col-lg-5 col-12">
+      <p class="heading">適度にのんびり、</p>
+      <p class="heading">適度にテキパキしたい人のための</p>
+      <p class="heading">タスク管理ツール</p>
+    </div>
+    
+    <div class="col-lg-5 col-12 my-5">
+      <p class="top-link"><%= link_to "新規登録", new_user_registration_path %></p>
+      <p class="top-link"><%= link_to "ログイン", new_user_session_path %></p>
+    </div>
+  </div>
+</div>
