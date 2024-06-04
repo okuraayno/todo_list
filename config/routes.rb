@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/' => 'homes#top'
-
   resources :users, only: [:show, :edit, :create, :destroy, :update] do
     resources :lists, only: [:index, :show, :new, :edit, :create, :destroy, :update]
   end
