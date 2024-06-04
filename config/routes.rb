@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get '/' => 'homes#top'
   devise_for :users
+  get '/' => 'homes#top'
 
-  resources :lists, only: [:index, :show, :new, :edit, :create, :destroy, :update]
-  resources :users, only: [:index, :show, :edit, :create, :destroy, :update]
-
+  resources :users, only: [:show, :edit, :create, :destroy, :update] do
+    resources :lists, only: [:index, :show, :new, :edit, :create, :destroy, :update]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
