@@ -1,5 +1,2 @@
-class List < ApplicationRecord
-
-  belongs_to :calendar
-  
+class Task < ApplicationRecord
 end

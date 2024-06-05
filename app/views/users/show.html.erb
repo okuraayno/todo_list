@@ -10,8 +10,31 @@
         <% end %>
       </p>
     </div>
-    
+    <%= link_to "タスクを追加する", new_user_task_path(@user) %>
     <%= link_to "カレンダー", user_calendars_path(@user) %>
+    
+    <div class="col-10 justify-content-center mb-5">
+      <table>
+        <thead>
+          <tr>
+            <% @task.each do |task| %>
+            <th>予定日</th>
+            <th>リミット</th>
+            <th>優先順位</th>
+            <th>タスク</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><%= task.task_at %></th>
+            <th></th>
+            <th></th>
+            <th><%= task.task_title %></th>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     
   </div>
 </div>
