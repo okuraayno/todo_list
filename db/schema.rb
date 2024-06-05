@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_05_090947) do
+ActiveRecord::Schema.define(version: 2024_06_05_132128) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 2024_06_05_090947) do
   create_table "calendars", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "title", null: false
+    t.text "detail"
+    t.datetime "scheduled_date"
+    t.datetime "limit_date"
+    t.integer "priority", limit: 3, default: 0
+    t.boolean "status", default: true, null: false
   end
 
   create_table "users", force: :cascade do |t|
