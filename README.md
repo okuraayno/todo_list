@@ -1,24 +1,31 @@
-# README
+# My To Do
+※開発中
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 制作意図
+- 転職活動中のスケジュールやタスク、また今後の学習計画をまとめるため、自己学習を兼ね開発
+- 実際に自分で開発し、自分で使うことでテストやユーザビリティについて学ぶため
 
-* Ruby version
 
-* System dependencies
+## アプリケーションについて
+- タスク管理、カレンダー上でのスケジュール管理ができるシンプルなアプリケーションです。
+※基本機能の実装完了後、追加機能実装を検討
 
-* Configuration
 
-* Database creation
+## 機能リスト
+- 後ほど掲載
 
-* Database initialization
 
-* How to run the test suite
+## 設計書
+- 後ほど掲載
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+- 後ほど掲載
