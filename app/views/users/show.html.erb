@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-10 justify-content-center my-5">
+    <div class="col-10 justify-content-center mt-5">
       <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle d-block mx-auto", size: "150x150" %>
       <p class="text-center mt-3"><%= @user.name %>'s task</p>
       <p class="text-center"><%= @user.introduction %></p>
@@ -9,11 +9,22 @@
           <i class="fas fa-user-cog"></i>
         <% end %>
       </p>
+      <p>
+        <%= link_to new_user_task_path(@user) do %>
+          <i class="fa-solid fa-pen-to-square"></i> タスクを追加する
+        <% end %>
+      </p>
+      <p>
+        <%= link_to  user_calendars_path(@user) do %>
+          <i class="fa-solid fa-calendar-days"></i> カレンダーを確認する
+        <% end %>
+      </p>
     </div>
-    <%= link_to "タスクを追加する", new_user_task_path(@user) %>
-    <%= link_to "カレンダー", user_calendars_path(@user) %>
     
-    <div class="col-10 justify-content-center mb-5">
+    <div class="col-10 justify-content-center my-3">
+      <hr>
+      <h4><i class="fa-solid fa-thumbtack"></i> <%= @user.name %>の未消化タスク</h4>
+      <% if @task.exists? %>
       <table>
         <thead>
           <tr>
@@ -26,14 +37,25 @@
         </thead>
         <tbody>
           <tr>
-            <th><%= task.task_at %></th>
-            <th></th>
-            <th></th>
-            <th><%= task.task_title %></th>
+            <th><%= task.scheduled_date %></th>
+            <th><%= task.limit_date %></th>
+            <th><%= task.priority %></th>
+            <th><%= task.title %></th>
             <% end %>
           </tr>
         </tbody>
       </table>
+      <% else %>
+        <p class="heading mt-3">とくにタスクはありません！！おめでとう！！のんびりしましょう！！ <i class="fas fa-thumbs-up"></i></p>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+        <script>
+          confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+          });
+        </script>
+      <% end %>
     </div>
     
   </div>
