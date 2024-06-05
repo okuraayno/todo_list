@@ -53,3 +53,22 @@ a {
   background-image: repeating-linear-gradient(45deg, #b4a983 0px, #b4a983 1px, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%);
   background-size: 8px 8px;
 }
+
+/*優先度のシークバー*/
+.priority-slider {
+  width: 300px;
+}
+
+.slider {
+  width: 100%;
+}
+
+#priority-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  width: 25px;
+  text-align: center;
+}
