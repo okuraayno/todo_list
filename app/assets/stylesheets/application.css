@@ -72,3 +72,39 @@ a {
   width: 25px;
   text-align: center;
 }
+
+.task3 {
+    text-decoration: none;
+    padding: 0.5rem;
+    background: #f7f7f7;
+    border-left: solid 60px #D49D9D;
+    color: #D49D9D;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
+}
+
+.task2 {
+    text-decoration: none;
+    padding: 0.5rem;
+    background: #f7f7f7;
+    border-left: solid 60px #DFC7D5;
+    color: #DFC7D5;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
+}
+
+.task1 {
+    text-decoration: none;
+    padding: 0.5rem;
+    background: #f7f7f7;
+    border-left: solid 60px #B7B8D4;
+    color: #B7B8D4;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
+}
+
+.task0 {
+    text-decoration: none;
+    padding: 0.5rem;
+    background: #f7f7f7;
+    border-left: solid 60px #ACC3D6;
+    color: #ACC3D6;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
+}
