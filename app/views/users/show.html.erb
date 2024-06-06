@@ -1,52 +1,42 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-10 justify-content-center mt-5">
+    <div class="col-10 mt-5">
       <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle d-block mx-auto", size: "150x150" %>
       <p class="text-center mt-3"><%= @user.name %>'s task</p>
       <p class="text-center"><%= @user.introduction %></p>
-      <p class="text-center">
-        <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-sm px-5 edit_user_#{@user.id}" do %>
-          <i class="fas fa-user-cog"></i>
-        <% end %>
-      </p>
-      <p>
-        <%= link_to new_user_task_path(@user) do %>
-          <i class="fa-solid fa-pen-to-square"></i> タスクを追加する
-        <% end %>
-      </p>
-      <p>
-        <%= link_to  user_calendars_path(@user) do %>
-          <i class="fa-solid fa-calendar-days"></i> カレンダーを確認する
-        <% end %>
-      </p>
+
+      <div class="d-flex justify-content-center flex-row mb-2">
+        <div class="btn">
+          <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-sm px-5" do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
+        </div>
+        <div class="btn">
+          <%= link_to new_user_task_path(@user), class: "btn btn-outline-secondary btn-sm px-5" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+        </div>
+        <div class="btn">
+          <%= link_to user_calendars_path(@user), class: "btn btn-outline-secondary btn-sm px-5" do %>
+            <i class="fa-solid fa-calendar-days"></i>
+          <% end %>
+        </div>
+      </div>
     </div>
-    
-    <div class="col-10 justify-content-center my-3">
-      <hr>
+
+    <div class="col-10 justify-content-center mt-3">
       <h4><i class="fa-solid fa-thumbtack"></i> <%= @user.name %>の未消化タスク</h4>
-      <% if @task.exists? %>
-      <table>
-        <thead>
-          <tr>
-            <% @task.each do |task| %>
-            <th>予定日</th>
-            <th>リミット</th>
-            <th>優先順位</th>
-            <th>タスク</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th><%= task.scheduled_date %></th>
-            <th><%= task.limit_date %></th>
-            <th><%= task.priority %></th>
-            <th><%= task.title %></th>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
+      <% if @tasks.exists? %>
+        <%= render "tasks/index", tasks: @tasks %>
+        <p class="text-right mt-3">
+          <%= link_to user_tasks_path(@user) do %>
+            すべてのタスクを確認する <i class="fa-solid fa-angles-right"></i>
+          <% end %>
+        </p>
       <% else %>
-        <p class="heading mt-3">とくにタスクはありません！！おめでとう！！のんびりしましょう！！ <i class="fas fa-thumbs-up"></i></p>
+        <p class="heading mt-3">
+          とくにタスクはありません！！おめでとう！！のんびりしましょう！！ <i class="fas fa-thumbs-up"></i>
+        </p>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
         <script>
           confetti({
@@ -57,6 +47,5 @@
         </script>
       <% end %>
     </div>
-    
   </div>
 </div>

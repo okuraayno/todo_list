@@ -1,31 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 my-3">
-      <% if @tasks.exists? %>
-        <% @tasks.each do |task| %>
-          <% if task.priority == 3 %>
-            <div class="task3 mt-3">
-              <i class="fa-solid fa-face-tired"></i>
-              <%= task.title %>
-            </div>
-          <% elsif task.priority == 2 %>
-            <div class="task2 mt-3">
-              <i class="fa-solid fa-face-frown"></i>
-              <%= task.title %>
-            </div>
-          <% elsif task.priority == 1 %>
-            <div class="task1 mt-3">
-              <i class="fa-solid fa-face-grin"></i>
-              <%= task.title %>
-            </div>
-          <% else %>
-            <div class="task0 mt-3">
-              <i class="fa-solid fa-face-smile-beam"></i>
-              <%= task.title %>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
+      <%= render "tasks/index", tasks: @tasks %>
     </div>
   </div>
 </div>
