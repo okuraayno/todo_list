@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10">
-      <%= form_with model: @task, url: (user_tasks_path), local:true do |f| %>
+      <%= form_with model: @task, url: (user_tasks_path), local: true do |f| %>
         <div class="form-group my-3">
           <%= f.text_field :title, placeholder: "タスクタイトル", class: "form-control" %>
         </div>
@@ -22,7 +22,7 @@
 
         <div class="priority-slider">
           <p>優先度</p>
-          <input type="range" min="0" max="3" step="1" value="0" class="slider" id="priority-slider">
+          <%= f.range_field :priority, min: 0, max: 3, step: 1, class: "slider", id: "priority-slider" %>
           <div id="priority-labels">
             <label class="label"><i class="fa-solid fa-face-smile-beam"></i></label>
             <label class="label"><i class="fa-solid fa-face-grin"></i></label>

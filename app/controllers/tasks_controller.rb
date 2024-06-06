@@ -8,16 +8,14 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
-      pp @tas
-      redirect_to user_task_path(@task), notice: "You have created book successfully."
+      redirect_to user_tasks_path, notice: "You have created book successfully."
     else
       render 'new'
     end
   end
 
   def index
-    @user = User.find(params[:id])
-    @tasks = @user.tasks
+    @tasks = Task.all
   end
 
   def show
@@ -29,8 +27,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :detail, :scheduled_date, :limit_date, :priority)
+    params.require(:task).permit(:user_id, :title, :detail, :scheduled_date, :limit_date, :priority)
   end
-
 
 end
