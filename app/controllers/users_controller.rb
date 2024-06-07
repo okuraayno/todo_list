@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @tasks = @user.tasks
+    @tasks = @user.tasks.order(created_at: :desc).limit(3)
   end
 
   def edit
