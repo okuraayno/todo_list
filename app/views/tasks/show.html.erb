@@ -21,9 +21,9 @@
         <%= @task.limit_date %>
       </p>
       <p>
-        <%= link_to "編集", edit_user_task_path(@task.id) %>
+        <%= link_to "edit", edit_user_task_path(@task.id) %>
         |
-        <%= link_to "削除", @tasks, method: :delete, data: { confirm: '本当に消しますか？' }%>
+        <%= link_to "delet", @tasks, method: :delete, data: { confirm: '本当に消しますか？' }%>
       </p>
     </div>
   </div>
