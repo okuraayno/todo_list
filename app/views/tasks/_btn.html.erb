@@ -1,0 +1,6 @@
+<div id="task<%= task.id %>" ><%= task.status %></div>
+<% if user_signed_in? && task.user_id == current_user.id %>
+  <div>
+    <%= button_to 'Done', done_path(task), method: :post, remote: true %>
+  </div>
+<% end %>
