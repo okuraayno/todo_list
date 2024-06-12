@@ -112,3 +112,27 @@ a {
     color: #ACC3D6;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
 }
+
+/*task/showテキストボックス*/
+.text-box{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #b4a983;
+    border-bottom: solid 2px #b4a983;
+}
+.text-box:before, .text-box:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #b4a983;
+}
+.text-box:before {left: 10px;}
+.text-box:after {right: 10px;}
+.text-box p {
+    margin: 0; 
+    padding: 0;
+}

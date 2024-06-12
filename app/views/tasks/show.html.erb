@@ -1,2 +1,30 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="text-box col-10 my-5">
+      <h3>
+        <% if @task.priority == 0 %>
+          <i class="fa-solid fa-face-smile-beam"></i> 
+        <% elsif @task.priority == 1 %>
+          <i class="fa-solid fa-face-grin"></i> 
+        <% elsif @task.priority == 2 %>
+          <i class="fa-solid fa-face-frown"></i> 
+        <% else %>
+          <i class="fa-solid fa-face-tired"></i> 
+        <% end %>
+        <%= @task.title %>
+      </h3>
+
+      <p><%= simple_format(@task.detail, sanitize: true) %></p>
+      <p class="text-right">
+        <%= @task.scheduled_date %>
+        〜
+        <%= @task.limit_date %>
+      </p>
+      <p>
+        <%= link_to "編集", edit_user_task_path(@task.id) %>
+        |
+        <%= link_to "削除", @tasks, method: :delete, data: { confirm: '本当に消しますか？' }%>
+      </p>
+    </div>
+  </div>
+</div>
