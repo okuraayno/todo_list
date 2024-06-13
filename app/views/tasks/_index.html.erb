@@ -3,7 +3,9 @@
     <% if task.priority == 3 %>
       <div class="task3 mt-3">
         <i class="fa-solid fa-face-tired"></i>
-        <%= task.title %>
+        <%= link_to user_task_path(task.id) do %>
+          <%= task.title %>
+        <% end %>
         <p class="text-right">
           <%= task.scheduled_date %>
           〜
@@ -13,7 +15,9 @@
     <% elsif task.priority == 2 %>
       <div class="task2 mt-3">
         <i class="fa-solid fa-face-frown"></i>
-        <%= task.title %>
+        <%= link_to user_task_path(task.id) do %>
+          <%= task.title %>
+        <% end %>
         <p class="text-right">
           <%= task.scheduled_date %>
           〜
@@ -23,7 +27,9 @@
     <% elsif task.priority == 1 %>
       <div class="task1 mt-3">
         <i class="fa-solid fa-face-grin"></i>
+        <%= link_to user_task_path(task.id) do %>
           <%= task.title %>
+        <% end %>
           <p class="text-right">
             <%= task.scheduled_date %>
             〜
@@ -33,7 +39,9 @@
       <% else %>
         <div class="task0 mt-3">
           <i class="fa-solid fa-face-smile-beam"></i>
+        <%= link_to user_task_path(task.id) do %>
           <%= task.title %>
+        <% end %>
           <p class="text-right">
             <%= task.scheduled_date %>
             〜
