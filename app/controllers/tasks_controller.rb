@@ -23,6 +23,17 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.user_id = current_user.id
+    if @task.update(task_params)
+      redirect_to user_tasks_path, notice: "You have updated book successfully."
+    else
+      render "edit"
+    end
   end
 
   private
