@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tasks, dependent: :destroy
-  has_many :calendars, dependent: :destroy
 
   has_one_attached :profile_image
 
