@@ -8,8 +8,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
-      redirect_to user_tasks_path, notice: "You have created book successfully."
+      redirect_to user_tasks_path, notice: "タスク追加完了！"
     else
+      flash[:notice] = "内容を確認してください。"
       render 'new'
     end
   end
@@ -30,10 +31,18 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.user_id = current_user.id
     if @task.update(task_params)
-      redirect_to user_tasks_path, notice: "You have updated book successfully."
+      redirect_to user_tasks_path, notice: "タスク内容を修正しました！"
     else
+      flash[:notice] = "内容を確認してください。"
       render "edit"
     end
+  end
+  
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:notice] = "タスクを削除しました！"
+    redirect_to user_tasks_path
   end
 
   private
