@@ -114,25 +114,94 @@ a {
 }
 
 /*task/showテキストボックス*/
-.text-box{
+.text-box3{
     margin:2em 0;
     position: relative;
     padding: 0.5em 1.5em;
-    border-top: solid 2px #b4a983;
-    border-bottom: solid 2px #b4a983;
+    border-top: solid 2px #D49D9D;
+    border-bottom: solid 2px #D49D9D;
 }
-.text-box:before, .text-box:after{
+.text-box3:before, .text-box3:after{
     content: '';
     position: absolute;
     top: -10px;
     width: 2px;
     height: -webkit-calc(100% + 20px);
     height: calc(100% + 20px);
-    background-color: #b4a983;
+    background-color: #D49D9D;
 }
-.text-box:before {left: 10px;}
-.text-box:after {right: 10px;}
-.text-box p {
+.text-box3:before {left: 10px;}
+.text-box3:after {right: 10px;}
+.text-box3 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.text-box2{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #DFC7D5;
+    border-bottom: solid 2px #DFC7D5;
+}
+.text-box2:before, .text-box2:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #DFC7D5;
+}
+.text-box2:before {left: 10px;}
+.text-box2:after {right: 10px;}
+.text-box2 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.text-box1{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #B7B8D4;
+    border-bottom: solid 2px #B7B8D4;
+}
+.text-box1:before, .text-box1:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #B7B8D4;
+}
+.text-box1:before {left: 10px;}
+.text-box1:after {right: 10px;}
+.text-box1 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.text-box0{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #ACC3D6;
+    border-bottom: solid 2px #ACC3D6;
+}
+.text-box0:before, .text-box0:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: #ACC3D6;
+}
+.text-box0:before {left: 10px;}
+.text-box0:after {right: 10px;}
+.text-box0 p {
     margin: 0; 
     padding: 0;
 }
