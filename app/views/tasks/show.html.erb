@@ -1,36 +1,115 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 my-5">
-
-      <div class="text-box py-3 px-5">
-        <h3>
-          <% if @task.priority == 0 %>
-            <i class="fa-solid fa-face-smile-beam"></i>
-          <% elsif @task.priority == 1 %>
-            <i class="fa-solid fa-face-grin"></i>
-          <% elsif @task.priority == 2 %>
-            <i class="fa-solid fa-face-frown"></i>
-          <% else %>
+      <% if @task.priority == 3 %>
+        <div class="text-box3 py-3 px-5">
+          <h3 style="color: #D49D9D;">
             <i class="fa-solid fa-face-tired"></i>
-          <% end %>
-          <%= @task.title %>
+            <%= @task.title %>
+          </h3>
 
-          <%= link_to "完了", user_done_task_path(user_id: @task.user_id, id: @task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" } %>
-        </h3>
+          <p><%= simple_format(@task.detail, sanitize: true) %></p>
+          <p class="text-right">
+            <%= @task.scheduled_date %>
+            〜
+            <%= @task.limit_date %>
+          </p>
 
-        <p><%= simple_format(@task.detail, sanitize: true) %></p>
-        <p class="text-right">
-          <%= @task.scheduled_date %>
-          〜
-          <%= @task.limit_date %>
-        </p>
+          <p>
+            <%= link_to user_done_task_path(user_id: @task.user_id, id: @task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+              <i class="fa-solid fa-check text-white"></i>
+            <% end %>
+            <%= link_to edit_user_task_path(@task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+              <i class="fa-solid fa-pen text-white"></i>
+            <% end %>
+            <%= link_to  @tasks, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+              <i class="fa-solid fa-trash text-white"></i>
+            <% end %>
+          </p>
+        </div>
 
-        <p>
-          <%= link_to "編集", edit_user_task_path(@task.id) %>
-          |
-          <%= link_to "削除", @tasks, method: :delete, data: { confirm: '本当に消しますか？' }%>
-        </p>
-      </div>
+      <% elsif @task.priority == 2 %>
+        <div class="text-box2 py-3 px-5">
+          <h3 style="color: #DFC7D5;">
+            <i class="fa-solid fa-face-frown"></i>
+            <%= @task.title %>
+          </h3>
+
+          <p><%= simple_format(@task.detail, sanitize: true) %></p>
+          <p class="text-right">
+            <%= @task.scheduled_date %>
+            〜
+            <%= @task.limit_date %>
+          </p>
+
+          <p>
+            <%= link_to user_done_task_path(user_id: @task.user_id, id: @task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+              <i class="fa-solid fa-check text-white"></i>
+            <% end %>
+            <%= link_to edit_user_task_path(@task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+              <i class="fa-solid fa-pen text-white"></i>
+            <% end %>
+            <%= link_to  @tasks, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+              <i class="fa-solid fa-trash text-white"></i>
+            <% end %>
+          </p>
+        </div>
+
+      <% elsif @task.priority == 1 %>
+        <div class="text-box1 py-3 px-5">
+          <h3 style="color: #B7B8D4;">
+            <i class="fa-solid fa-face-grin"></i>
+            <%= @task.title %>
+          </h3>
+
+          <p><%= simple_format(@task.detail, sanitize: true) %></p>
+          <p class="text-right">
+            <%= @task.scheduled_date %>
+            〜
+            <%= @task.limit_date %>
+          </p>
+
+          <p>
+            <%= link_to user_done_task_path(user_id: @task.user_id, id: @task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+              <i class="fa-solid fa-check text-white"></i>
+            <% end %>
+            <%= link_to edit_user_task_path(@task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+              <i class="fa-solid fa-pen text-white"></i>
+            <% end %>
+            <%= link_to  @tasks, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+              <i class="fa-solid fa-trash text-white"></i>
+            <% end %>
+          </p>
+        </div>
+
+      <% else %>
+        <div class="text-box0 py-3 px-5">
+          <h3 style="color: #ACC3D6;">
+            <i class="fa-solid fa-face-smile-beam"></i>
+            <%= @task.title %>
+          </h3>
+
+          <p><%= simple_format(@task.detail, sanitize: true) %></p>
+          <p class="text-right">
+            <%= @task.scheduled_date %>
+            〜
+            <%= @task.limit_date %>
+          </p>
+
+          <p>
+            <%= link_to user_done_task_path(user_id: @task.user_id, id: @task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+              <i class="fa-solid fa-check text-white"></i>
+            <% end %>
+            <%= link_to edit_user_task_path(@task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+              <i class="fa-solid fa-pen text-white"></i>
+            <% end %>
+            <%= link_to  @tasks, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+              <i class="fa-solid fa-trash text-white"></i>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+
 
       <p class="text-center">
         <%= link_to "タスク一覧へ",user_tasks_path(@task.user_id) %>

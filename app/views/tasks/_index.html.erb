@@ -4,40 +4,71 @@
       <div class="task3 mt-3">
         <i class="fa-solid fa-face-tired"></i>
         <%= link_to task.title, user_task_path(task.user_id, task.id) %>
+
         <p class="text-right">
-          <%= task.scheduled_date %>
-          〜
-          <%= task.limit_date %>
+          <%= link_to user_done_task_path(user_id: task.user_id, id: task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+            <i class="fa-solid fa-check text-white"></i>
+          <% end %>
+          <%= link_to edit_user_task_path(task.user_id, task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+            <i class="fa-solid fa-pen text-white"></i>
+          <% end %>
+          <%= link_to user_task_path(task.user_id, task.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+            <i class="fa-solid fa-trash text-white"></i>
+          <% end %>
         </p>
       </div>
+
     <% elsif task.priority == 2 %>
       <div class="task2 mt-3">
         <i class="fa-solid fa-face-frown"></i>
         <%= link_to task.title, user_task_path(task.user_id, task.id) %>
+
         <p class="text-right">
-          <%= task.scheduled_date %>
-          〜
-          <%= task.limit_date %>
+          <%= link_to user_done_task_path(user_id: task.user_id, id: task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+            <i class="fa-solid fa-check text-white"></i>
+          <% end %>
+          <%= link_to edit_user_task_path(task.user_id, task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+            <i class="fa-solid fa-pen text-white"></i>
+          <% end %>
+          <%= link_to user_task_path(task.user_id, task.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+            <i class="fa-solid fa-trash text-white"></i>
+          <% end %>
         </p>
       </div>
+
     <% elsif task.priority == 1 %>
       <div class="task1 mt-3">
         <i class="fa-solid fa-face-grin"></i>
         <%= link_to task.title, user_task_path(task.user_id, task.id) %>
+
         <p class="text-right">
-          <%= task.scheduled_date %>
-          〜
-          <%= task.limit_date %>
+          <%= link_to user_done_task_path(user_id: task.user_id, id: task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+            <i class="fa-solid fa-check text-white"></i>
+          <% end %>
+          <%= link_to edit_user_task_path(task.user_id, task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+            <i class="fa-solid fa-pen text-white"></i>
+          <% end %>
+          <%= link_to user_task_path(task.user_id, task.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+            <i class="fa-solid fa-trash text-white"></i>
+          <% end %>
         </p>
       </div>
+
     <% else %>
       <div class="task0 mt-3">
         <i class="fa-solid fa-face-smile-beam"></i>
         <%= link_to task.title, user_task_path(task.user_id, task.id) %>
+
         <p class="text-right">
-          <%= task.scheduled_date %>
-          〜
-          <%= task.limit_date %>
+          <%= link_to user_done_task_path(user_id: task.user_id, id: task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" }, class: "btn btn-sm rounded-circle", style: "background-color: #ACC3D6;" do %>
+            <i class="fa-solid fa-check text-white"></i>
+          <% end %>
+          <%= link_to edit_user_task_path(task.user_id, task.id), class: "btn btn-sm rounded-circle", style: "background-color: #B7B8D4;" do %>
+            <i class="fa-solid fa-pen text-white"></i>
+          <% end %>
+          <%= link_to user_task_path(task.user_id, task.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm rounded-circle", style: "background-color: #D49D9D;" do %>
+            <i class="fa-solid fa-trash text-white"></i>
+          <% end %>
         </p>
       </div>
     <% end %>
