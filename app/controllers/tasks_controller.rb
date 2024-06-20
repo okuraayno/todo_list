@@ -44,6 +44,12 @@ class TasksController < ApplicationController
     flash[:notice] = "タスクを削除しました。"
     redirect_to user_tasks_path
   end
+  
+  def done
+    @task = Task.find(params[:id])
+    @task.update(status: false)
+    redirect_to user_tasks_path(@task.user_id), notice: "タスク完了！お疲れ様でした。"
+  end
 
   private
 

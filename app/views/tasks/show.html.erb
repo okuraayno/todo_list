@@ -14,6 +14,8 @@
             <i class="fa-solid fa-face-tired"></i>
           <% end %>
           <%= @task.title %>
+
+          <%= link_to "完了", user_done_task_path(user_id: @task.user_id, id: @task.id), method: :patch, data: { confirm: "タスクは完了しましたか？" } %>
         </h3>
 
         <p><%= simple_format(@task.detail, sanitize: true) %></p>
